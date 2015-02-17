@@ -8,7 +8,7 @@ public interface IOwnable {
 
 	public abstract int getPrice();
 
-	public abstract void playAction();
+	public abstract boolean playAction(String msg);
 
 	public abstract void setTheOwner(Player owner);
 
