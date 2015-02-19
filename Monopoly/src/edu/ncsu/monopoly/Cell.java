@@ -51,17 +51,11 @@ public abstract class Cell implements IOwnable {
         return name;
     }
 
-	/* (non-Javadoc)
-	 * @see edu.ncsu.monopoly.IOwnable#isAvailable()
-	 */
 	@Override
 	public boolean isAvailable() {
 		return available;
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.ncsu.monopoly.IOwnable#setAvailable(boolean)
-	 */
 	@Override
 	public void setAvailable(boolean available) {
 		this.available = available;
