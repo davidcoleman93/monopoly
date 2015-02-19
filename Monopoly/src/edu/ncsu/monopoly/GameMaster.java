@@ -39,11 +39,10 @@ public class GameMaster {
         Card card = null;
         if(cell.getType() == Card.TYPE_CC) {
             card = getGameBoard().drawCCCard();
-            card.applyAction();
         } else {
             card = getGameBoard().drawChanceCard();
-            card.applyAction();
         }
+        card.applyAction();
         gui.setEndTurnEnabled(true);
         return card;
     }
@@ -196,8 +195,9 @@ public class GameMaster {
 	public void movePlayer(Player player, int diceValue) {
 		IOwnable currentPosition = player.getPosition();
 		int positionIndex = gameBoard.queryCellIndex(currentPosition.getName());
-		int newIndex = (positionIndex+diceValue)%gameBoard.getCellNumber();
-		if(newIndex <= positionIndex || diceValue > gameBoard.getCellNumber()) {
+		int cellNumber = gameBoard.getCellNumber();
+		int newIndex = (positionIndex+diceValue)%cellNumber;
+		if(newIndex <= positionIndex || diceValue > cellNumber) {
 			player.setMoney(player.getMoney() + 200);
 		}
 		player.setPosition(gameBoard.getCell(newIndex));
