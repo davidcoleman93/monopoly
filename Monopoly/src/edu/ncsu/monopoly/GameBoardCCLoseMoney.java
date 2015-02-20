@@ -1,14 +1,9 @@
 package edu.ncsu.monopoly;
 
 
-public class GameBoardCCLoseMoney extends GameBoard {
+public class GameBoardCCLoseMoney extends GameBoardCC {
     public GameBoardCCLoseMoney() {
 		super();
-		PropertyCell blue1 = new PropertyCell();
-		PropertyCell blue2 = new PropertyCell();
-        IOwnable cc1 = new CardCell(Card.TYPE_CC, "Community Chest 1");
-        JailCell jail = new JailCell();
-        IOwnable chance1 = new CardCell(Card.TYPE_CHANCE, "Chance 1");
         
         Card ccCard1 = new MoneyCard("Pay $20", -20, Card.TYPE_CC);
         Card chanceCard1 = new MoneyCard("Pay $30", -30, Card.TYPE_CHANCE);

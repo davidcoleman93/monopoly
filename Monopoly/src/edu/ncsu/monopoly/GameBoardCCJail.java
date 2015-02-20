@@ -1,15 +1,10 @@
 package edu.ncsu.monopoly;
 
 
-public class GameBoardCCJail extends GameBoard {
+public class GameBoardCCJail extends GameBoardCC {
     
     public GameBoardCCJail() {
 		super();
-		PropertyCell blue1 = new PropertyCell();
-		PropertyCell blue2 = new PropertyCell();
-        IOwnable cc1 = new CardCell(Card.TYPE_CC, "Community Chest 1");
-        JailCell jail = new JailCell();
-        IOwnable chance1 = new CardCell(Card.TYPE_CHANCE, "Chance 1");
         
         Card ccCard1 = new JailCard(Card.TYPE_CC);
         Card chanceCard1 = new JailCard(Card.TYPE_CHANCE);
