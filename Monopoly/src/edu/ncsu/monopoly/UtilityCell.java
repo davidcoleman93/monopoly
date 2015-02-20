@@ -26,10 +26,11 @@ public class UtilityCell extends Cell {
 	public boolean playAction(String msg) {
 		Player currentPlayer = null;
 		if(!isAvailable()) {
-			currentPlayer = GameMaster.instance().getCurrentPlayer();
+			GameMaster gmInstance = GameMaster.instance();
+			currentPlayer = gmInstance.getCurrentPlayer();
 			if(theOwner != currentPlayer) {
-				GameMaster.instance().utilRollDice();
-				int diceRoll = GameMaster.instance().getUtilDiceRoll();
+				gmInstance.utilRollDice();
+				int diceRoll = gmInstance.getUtilDiceRoll();
 				currentPlayer.payRentTo(theOwner, getRent(diceRoll));
 			}
 		}

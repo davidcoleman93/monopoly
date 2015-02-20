@@ -7,9 +7,10 @@ public class GoToJailCell extends Cell {
 	}
 
 	public boolean playAction(String msg) {
-		Player currentPlayer = GameMaster.instance().getCurrentPlayer();
-		JailCell jail = (JailCell)(GameMaster.instance().getGameBoard().queryCell("Jail"));
-		GameMaster.instance().sendToJail(currentPlayer);
+		GameMaster gmInstance = GameMaster.instance();
+		Player currentPlayer = gmInstance.getCurrentPlayer();
+		JailCell jail = (JailCell)(gmInstance.getGameBoard().queryCell("Jail"));
+		gmInstance.sendToJail(currentPlayer);
 		return true;
 	}
 }

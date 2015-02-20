@@ -197,13 +197,18 @@ public class GameMaster {
 		int positionIndex = gameBoard.queryCellIndex(currentPosition.getName());
 		int cellNumber = gameBoard.getCellNumber();
 		int newIndex = (positionIndex+diceValue)%cellNumber;
-		if(newIndex <= positionIndex || diceValue > cellNumber) {
-			player.setMoney(player.getMoney() + 200);
-		}
+		passGo(player, diceValue, positionIndex, cellNumber, newIndex);
 		player.setPosition(gameBoard.getCell(newIndex));
 		gui.movePlayer(getPlayerIndex(player), positionIndex, newIndex);
 		playerMoved(player);
 		updateGUI();
+	}
+
+	private void passGo(Player player, int diceValue, int positionIndex,
+			int cellNumber, int newIndex) {
+		if(newIndex <= positionIndex || diceValue > cellNumber) {
+			player.setMoney(player.getMoney() + 200);
+		}
 	}
 
 	public void playerMoved(Player player) {
